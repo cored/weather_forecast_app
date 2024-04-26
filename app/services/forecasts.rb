@@ -1,6 +1,7 @@
 module Forecasts
+  extend self
 
-  def self.by_address(address, store, weather_api=OpenWeatherMap)
+  def by_address(address, store, weather_api=OpenWeatherMap)
     forecast_address = Address.of(address)
 
     forecast = Forecast.of(

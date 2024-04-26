@@ -18,5 +18,4 @@ class ForecastsController < ApplicationController
   def forecast_params
     params.permit(:address)
   end
-
 end

@@ -9,7 +9,9 @@ module Forecasts
       forecast_address
     )
 
-    store.write(forecast_address.formatted, forecast, expires_in: ENV.fetch('CACHE_EXPIRES_IN', 30.minutes))
+    store.write(forecast_address.formatted,
+                forecast,
+                expires_in: ENV.fetch('CACHE_EXPIRES_IN', 30.minutes))
 
     forecast
   end

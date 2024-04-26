@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Weather Forecast</h1>
+
+  <%= form_tag('/forecasts', method: :post, id: 'forecast-form') do %>
+    <%= text_field_tag :address, params[:address], placeholder: 'number street, city, state, zipcode, country' %>
+    <%= submit_tag 'Get Forecast' %>
+  <% end %>
+
+</div>

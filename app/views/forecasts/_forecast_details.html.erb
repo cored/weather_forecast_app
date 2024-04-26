@@ -1,0 +1,12 @@
+<div class="forecast">
+	<div class="forecast-details">
+		<% if forecast %>
+			<h2>Forecast: <%= forecast.formatted_address %></h2>
+			<p>Current Temperature: <%= forecast.temp %> °C</p>
+			<p>Feels Like: <%= forecast.feels_like %> °C </p>
+			<p>Humidity: <%= forecast.humidity %> %</p>
+			<p>Min Temperature: <%= forecast.temp_min %> °C</p>
+			<p>Max Temperature: <%= forecast.temp_max %> °C</p>
+		<% end %>
+	</div>
+</div>

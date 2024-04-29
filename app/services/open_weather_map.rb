@@ -10,8 +10,13 @@ class OpenWeatherMap
     @api_client = api_client
   end
 
+  Response = Struct.new(:data, keyword_init: true) do
+    def self.of(data)
+      new(data: data.main.to_h)
+    end
+  end
   def forecast_by_address(address)
-    api_client.current_weather(city: address.city)
+    Response.of(api_client.current_weather(city: address.city))
   end
 
   private

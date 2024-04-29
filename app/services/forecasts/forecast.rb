@@ -1,4 +1,5 @@
 module Forecasts
+  InvalidForecast = Class.new(StandardError)
 
   Forecast = Struct.new(:temp,
                         :feels_like,
@@ -11,7 +12,8 @@ module Forecasts
                         :address,
                         keyword_init: true) do
     def self.of(response, address)
-      new(response.main.to_h.merge(address: address))
+      raise InvalidForecast if response.data.keys.size < 8
+      new(response.data.merge(address: address))
     end
 
     def formatted_address

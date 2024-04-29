@@ -4,6 +4,7 @@ RSpec.describe Forecasts do
   subject(:forecasts) { described_class }
   let(:store) { double(:rails_cache, write: nil) }
   let(:weather_api) { instance_double(OpenWeatherMap, forecast_by_address: response) }
+  let(:address) { Forecasts::Address.of('Calle 13, Bogota, Cundinamarca, 110111, Colombia') }
 
   describe '.by_address' do
     context 'when the address is valid' do
@@ -16,7 +17,7 @@ RSpec.describe Forecasts do
           grnd_level: 100,
           sea_level: 100,
           pressure: 100,
-          address: Forecasts::Address.of('Calle 13, Bogota, Cundinamarca, 110111, Colombia') }
+          address: address }
       end
       let(:response) do
         instance_double(OpenWeatherMap::Response, data: forecast_attrs)
@@ -26,7 +27,7 @@ RSpec.describe Forecasts do
       it 'returns a forecast' do
         expect(
           forecasts.by_address(
-            'Calle 13, Bogota, Cundinamarca, 110111, Colombia',
+            address,
             store,
             weather_api,
           ).formatted_address
@@ -35,7 +36,7 @@ RSpec.describe Forecasts do
 
       it 'caches the forecast' do
         forecasts.by_address(
-          'Calle 13, Bogota, Cundinamarca, 110111, Colombia',
+          address,
           store,
           weather_api,
         )

@@ -15,6 +15,12 @@ RSpec.describe Forecasts::Address do
         expect { address.of('') }.to raise_error(Forecasts::InvalidAddress)
       end
     end
+
+    context 'when the address is nil' do
+      it 'throws an invalid address error' do
+        expect { address.of(nil) }.to raise_error(Forecasts::InvalidAddress)
+      end
+    end
   end
 
   describe '#formatted' do

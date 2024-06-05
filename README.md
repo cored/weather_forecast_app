@@ -64,9 +64,34 @@ Objects within the weather_forecast_app are decomposed based on their responsibi
 
 The design strategy of weather_forecast_app follows the principles of separation of concerns and domain-driven design. Data is separated from behavior, and related objects and behaviors are grouped under the same namespace to form a coherent domain model.
 
+[[system design|Design]] is not only the concern of architects and artists, but also of programmers. By following the principles of simplicity and separation of concerns, we can achieve elegant and functional designs.
+
+The application of two items can separate a system's architecture from its technical dependencies, such as databases and user interfaces, and create bridges between the application core and each technical domain. This separation of concerns ensures that changing the behavior of a system does not require a hunt through every part of such. Each component is made cohesive, and business rules are separated from technical details, leaving options open in a software system.
+
+Encapsulation ensures that the behavior of an object can only be affected through its API, controlling how much a change to an object affects other parts of the system and hiding object information.
+
+It also conceals how an object implements its functionality behind the abstraction of its API, ensuring that there are no unexpected dependencies between unrelated components.
+
+> Combining APIs defines a higher-level abstraction that ignores lower-level details unrelated to the task.
+
+Working at higher levels of abstraction reduces cognitive complexity, making it more effective than manipulating variables and control flows. Components are only developed when a higher-level abstraction exists for people to discuss and improve.
+
+> The goal is to define the API that describes the relationship between domain components and the outside world.
+
 **Naming Conventions:**
 
-In weather_forecast_app, naming conventions follow enterprise-scale production code standards, utilizing verbs for actions and nouns for data. This approach ensures clarity and consistency throughout the codebase, facilitating understanding and maintenance.
+Readers shouldn’t have to mentally translate your names into other names they already know.  This problem generally arises from a choice to use neither problem domain terms nor solution domain terms.
+
+If you can’t pronounce it, you can’t discuss it without sounding like an idiot.  The length of a name should correspond to the size of its scope.
+
+To avoid this problem, the name of a class, method or variable should convey its purpose or intent. In the context of the application we want to model *behavior* and *data*. Object Oriented Programming suggest that both things neeedto be combined but in functional programming the opposite is true. By having this separation we can name both things in terms of their purpose in the system.
+
+*Behaviour* represent action or a verb, whille *data* represent a noun or a thing. The rules to evolve the software architecture are based on this separation.
+
+1. Extract a data class whenever there's data involve.
+2. Define a top level namespace for the behavior, it should group the purpose in the system.
+3. Add new namespace when needed, define behavior as stateless functions.
+
 
 **Main Components:**
 

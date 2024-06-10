@@ -64,7 +64,7 @@ Objects within the weather_forecast_app are decomposed based on their responsibi
 
 The design strategy of weather_forecast_app follows the principles of separation of concerns and domain-driven design. Data is separated from behavior, and related objects and behaviors are grouped under the same namespace to form a coherent domain model.
 
-[[system design|Design]] is not only the concern of architects and artists, but also of programmers. By following the principles of simplicity and separation of concerns, we can achieve elegant and functional designs.
+Design is not only the concern of architects and artists, but also of programmers. By following the principles of simplicity and separation of concerns, we can achieve elegant and functional designs.
 
 The application of two items can separate a system's architecture from its technical dependencies, such as databases and user interfaces, and create bridges between the application core and each technical domain. This separation of concerns ensures that changing the behavior of a system does not require a hunt through every part of such. Each component is made cohesive, and business rules are separated from technical details, leaving options open in a software system.
 
